@@ -18,7 +18,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.font.FontFamily
@@ -27,24 +29,29 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.dancun.markethub.R
+import com.dancun.markethub.navigation.ROUT_REGISTER
 import com.dancun.markethub.ui.theme.Pink40
 import com.dancun.markethub.ui.theme.Pink80
 
 @Composable
-fun OnBoardingScreen(){
+fun OnBoardingScreen(navController: NavController){
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .paint(painter = painterResource(R.drawable.background), contentScale = ContentScale.FillBounds)
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
 
     ){
 
             Image(
-                painter = painterResource(R.drawable.detective),
+                painter = painterResource(R.drawable.onboarding),
                 contentDescription = "Product Image",
-                modifier = Modifier.size(128.dp),
+                modifier = Modifier.size(200.dp),
             )
 Text(
             text = "WELCOME TO MARKETHUB",
@@ -77,7 +84,7 @@ Text(
         Spacer(modifier = Modifier.height(5.dp))
 
         Button(
-            onClick = {},
+            onClick = { navController.navigate(ROUT_REGISTER) },
             colors = ButtonDefaults.buttonColors(Pink40),
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(330.dp)
@@ -101,7 +108,7 @@ Text(
 @Preview(showBackground =true )
 @Composable
 fun OnBoardingScreenPreview(){
-    OnBoardingScreen()
+    OnBoardingScreen(rememberNavController())
 
 
 

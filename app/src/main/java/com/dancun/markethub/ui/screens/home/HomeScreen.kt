@@ -15,6 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.R
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
@@ -42,6 +43,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.dancun.markethub.navigation.ROUT_INTENT
 import com.dancun.markethub.ui.theme.Pink40
 
 
@@ -49,7 +53,7 @@ import com.dancun.markethub.ui.theme.Pink40
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavController){
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -83,9 +87,11 @@ fun HomeScreen(){
                     ) }
 
                 IconButton(
-                    onClick = {}) {
+                    onClick = {
+                        navController.navigate(ROUT_INTENT)
+                    }) {
                     Icon(
-                        imageVector = Icons.Default.Share,
+                        imageVector = Icons.Default.ArrowForward,
                         contentDescription = ""
                     ) }
             },
@@ -289,7 +295,7 @@ fun HomeScreen(){
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview(){
-    HomeScreen()
+    HomeScreen(rememberNavController())
 
 }
 
