@@ -6,21 +6,30 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ModifierInfo
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.kennedy.markethub.ui.screens.about.AboutScreen
 
 @Composable
-fun ServiceScreen(){
+fun ServiceScreen(navController: NavController){
     Column(
         modifier = Modifier.fillMaxSize()
-    ) { }
+    ) {
+
+
+
+    }
 
 
 
 
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun ServiceScreenPreview(){
+    ServiceScreen(rememberNavController())
+
 
 
 
