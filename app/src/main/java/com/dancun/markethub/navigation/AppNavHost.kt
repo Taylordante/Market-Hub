@@ -1,6 +1,6 @@
 package com.glory.chezeabei.navigation
 
-import android.content.Intent
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -11,12 +11,15 @@ import com.dancun.markethub.navigation.ROUT_ABOUT
 import com.dancun.markethub.navigation.ROUT_HOME
 import com.dancun.markethub.navigation.ROUT_INTENT
 import com.dancun.markethub.navigation.ROUT_LOGIN
-import com.dancun.markethub.navigation.ROUT_ONBOARDING
 import com.dancun.markethub.navigation.ROUT_PAYMENT
+import com.dancun.markethub.navigation.ROUT_SCAFFOLD
 import com.dancun.markethub.navigation.ROUT_SERVICE
+import com.dancun.markethub.navigation.ROUT_SPLASH
 import com.dancun.markethub.ui.screens.auth.LoginScreen
 import com.dancun.markethub.ui.screens.payment.PaymentScreen
+import com.dancun.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.dancun.markethub.ui.screens.service.ServiceScreen
+import com.dancun.markethub.ui.screens.splash.SplashScreen
 import com.kennedy.markethub.ui.screens.about.AboutScreen
 import com.kennedy.markethub.ui.screens.home.HomeScreen
 
@@ -24,7 +27,7 @@ import com.kennedy.markethub.ui.screens.home.HomeScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_ONBOARDING
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -50,7 +53,12 @@ fun AppNavHost(
         composable(ROUT_INTENT) {
             IntentScreen(navController)
         }
-
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
+        }
+        composable(ROUT_SCAFFOLD) {
+            ScaffoldScreen(navController)
+        }
 
 
 
