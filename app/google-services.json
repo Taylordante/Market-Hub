@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "699470073695",
+    "project_id": "markethub-7d042",
+    "storage_bucket": "markethub-7d042.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699470073695:android:44a06affed12542904b0ea",
+        "android_client_info": {
+          "package_name": "com.dancun.markethub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDpEvaSxbGP7g6ihHs8syZjRqhSrT4oXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

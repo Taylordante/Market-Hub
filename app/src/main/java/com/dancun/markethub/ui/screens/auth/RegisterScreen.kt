@@ -30,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -40,6 +41,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.dancun.markethub.R
+import com.dancun.markethub.data.AuthViewModel
 import com.dancun.markethub.navigation.ROUT_LOGIN
 import com.dancun.markethub.navigation.ROUT_REGISTER
 import com.dancun.markethub.ui.theme.Pink40
@@ -145,6 +147,10 @@ fun RegisterScreen(navController: NavController){
         )
 
 
+        Spacer(modifier = Modifier.width(20.dp))
+
+        val context = LocalContext.current
+        val authViewModel = AuthViewModel(navController, context)
 
         Button(
             onClick = {},
@@ -159,8 +165,11 @@ fun RegisterScreen(navController: NavController){
 
         Spacer(modifier = Modifier.width(20.dp))
 
+
+
         TextButton(
-            onClick = { navController.navigate(ROUT_LOGIN) },) {
+            onClick = { authViewModel.signup(username, email, password,confirmpassword)},
+            ) {
             Text(text = "Already have an account? Login")
 
 

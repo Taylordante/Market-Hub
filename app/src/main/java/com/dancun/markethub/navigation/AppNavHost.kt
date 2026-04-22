@@ -15,12 +15,12 @@ import com.dancun.markethub.navigation.ROUT_PAYMENT
 import com.dancun.markethub.navigation.ROUT_SCAFFOLD
 import com.dancun.markethub.navigation.ROUT_SERVICE
 import com.dancun.markethub.navigation.ROUT_SPLASH
+import com.dancun.markethub.ui.screens.about.AboutScreen
 import com.dancun.markethub.ui.screens.auth.LoginScreen
 import com.dancun.markethub.ui.screens.payment.PaymentScreen
 import com.dancun.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.dancun.markethub.ui.screens.service.ServiceScreen
 import com.dancun.markethub.ui.screens.splash.SplashScreen
-import com.kennedy.markethub.ui.screens.about.AboutScreen
 import com.kennedy.markethub.ui.screens.home.HomeScreen
 
 @Composable

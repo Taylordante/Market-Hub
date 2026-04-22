@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,8 +34,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.dancun.markethub.R
 import com.dancun.markethub.navigation.ROUT_REGISTER
-import com.dancun.markethub.ui.theme.Pink40
+import com.dancun.markethub.ui.theme.Purple40
 import com.dancun.markethub.ui.theme.Pink80
+import com.dancun.markethub.ui.theme.Purple40
 
 @Composable
 fun OnBoardingScreen(navController: NavController){
@@ -83,9 +85,10 @@ Text(
 )
         Spacer(modifier = Modifier.height(5.dp))
 
+
         Button(
             onClick = { navController.navigate(ROUT_REGISTER) },
-            colors = ButtonDefaults.buttonColors(Pink40),
+            colors = buttonColors(Purple40),
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(330.dp)
         ){
