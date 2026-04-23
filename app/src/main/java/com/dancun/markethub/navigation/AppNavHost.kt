@@ -1,23 +1,20 @@
-package com.glory.chezeabei.navigation
+package com.dancun.markethub.navigation
 
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.dancun.markethub.navigation.ROUT_ABOUT
-import com.dancun.markethub.navigation.ROUT_HOME
-import com.dancun.markethub.navigation.ROUT_INTENT
-import com.dancun.markethub.navigation.ROUT_LOGIN
-import com.dancun.markethub.navigation.ROUT_PAYMENT
-import com.dancun.markethub.navigation.ROUT_SCAFFOLD
-import com.dancun.markethub.navigation.ROUT_SERVICE
-import com.dancun.markethub.navigation.ROUT_SPLASH
+import androidx.navigation.navArgument
 import com.dancun.markethub.ui.screens.about.AboutScreen
 import com.dancun.markethub.ui.screens.auth.LoginScreen
+import com.dancun.markethub.ui.screens.intent.IntentScreen
 import com.dancun.markethub.ui.screens.payment.PaymentScreen
+import com.dancun.markethub.ui.screens.products.AddProductScreen
+import com.dancun.markethub.ui.screens.products.UpdateProductScreen
+import com.dancun.markethub.ui.screens.products.ViewProductScreen
 import com.dancun.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.dancun.markethub.ui.screens.service.ServiceScreen
 import com.dancun.markethub.ui.screens.splash.SplashScreen
@@ -59,30 +56,16 @@ fun AppNavHost(
         composable(ROUT_SCAFFOLD) {
             ScaffoldScreen(navController)
         }
+        composable(ROUTE_ADD_PRODUCT) { AddProductScreen(navController) }
 
+        composable(ROUTE_VIEW_PRODUCTS) { ViewProductScreen(navController) }
 
-
+        composable(
+            ROUTE_UPDATE_PRODUCT,
+            arguments = listOf(navArgument("productId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId")!!
+            UpdateProductScreen(navController, productId)
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-@Composable
-fun IntentScreen(x0: NavHostController) {
-    TODO("Not yet implemented")
 }
-
-
