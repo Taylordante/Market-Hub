@@ -42,8 +42,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.dancun.markethub.R
 import com.dancun.markethub.data.AuthViewModel
-import com.dancun.markethub.navigation.ROUT_LOGIN
-import com.dancun.markethub.navigation.ROUT_REGISTER
+
 import com.dancun.markethub.ui.theme.Pink40
 
 @Composable

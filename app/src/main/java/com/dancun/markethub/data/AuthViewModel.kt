@@ -4,6 +4,8 @@ import android.content.Context
 import android.widget.Toast
 import androidx.navigation.NavController
 import com.dancun.markethub.models.User
+import com.dancun.markethub.navigation.ROUTE_ADD_PRODUCT
+import com.dancun.markethub.navigation.ROUTE_VIEW_PRODUCTS
 import com.dancun.markethub.navigation.ROUT_HOME
 import com.dancun.markethub.navigation.ROUT_REGISTER
 import com.dancun.markethub.navigation.ROUT_LOGIN
@@ -12,7 +14,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class AuthViewModel(var navController: NavController, var context: Context) {
-    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    // Use lazy initialization for FirebaseAuth to prevent crashes in Compose Previews
+    // where FirebaseApp is not initialized.
+    private val mAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     fun signup(username: String, email: String, password: String, confirmpassword: String) {
         if (email.isBlank() || password.isBlank() || confirmpassword.isBlank()) {
@@ -65,9 +69,11 @@ class AuthViewModel(var navController: NavController, var context: Context) {
                         Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
 
                         if (role == "admin") {
-                            navController.navigate(ROUT_ONBOARDING) // Redirect as needed
-                        } else {
-                            navController.navigate(ROUT_HOME)
+                            navController.navigate(ROUTE_ADD_PRODUCT) // Redirect as needed
+                        }
+
+                        else {
+                            navController.navigate(ROUTE_VIEW_PRODUCTS)
                         }
                     }.addOnFailureListener {
                         Toast.makeText(context, "Failed to fetch user role", Toast.LENGTH_SHORT).show()

@@ -10,7 +10,9 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.dancun.markethub.ui.screens.about.AboutScreen
 import com.dancun.markethub.ui.screens.auth.LoginScreen
+import com.dancun.markethub.ui.screens.auth.RegisterScreen
 import com.dancun.markethub.ui.screens.intent.IntentScreen
+import com.dancun.markethub.ui.screens.onboarding.OnBoardingScreen
 import com.dancun.markethub.ui.screens.payment.PaymentScreen
 import com.dancun.markethub.ui.screens.products.AddProductScreen
 import com.dancun.markethub.ui.screens.products.UpdateProductScreen
@@ -41,6 +43,9 @@ fun AppNavHost(
         composable(ROUT_LOGIN) {
             LoginScreen(navController)
         }
+        composable(ROUT_REGISTER) {
+            RegisterScreen(navController)
+        }
         composable(ROUT_SERVICE) {
             ServiceScreen(navController)
         }
@@ -55,6 +60,9 @@ fun AppNavHost(
         }
         composable(ROUT_SCAFFOLD) {
             ScaffoldScreen(navController)
+        }
+        composable(ROUT_ONBOARDING) {
+            OnBoardingScreen(navController)
         }
         composable(ROUTE_ADD_PRODUCT) { AddProductScreen(navController) }
 
