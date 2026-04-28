@@ -1,30 +1,33 @@
-package com.glory.chezeabei.navigation
+package com.dancun.markethub.navigation
 
-import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.dancun.markethub.navigation.ROUT_ABOUT
-import com.dancun.markethub.navigation.ROUT_HOME
-import com.dancun.markethub.navigation.ROUT_INTENT
-import com.dancun.markethub.navigation.ROUT_LOGIN
-import com.dancun.markethub.navigation.ROUT_ONBOARDING
-import com.dancun.markethub.navigation.ROUT_PAYMENT
-import com.dancun.markethub.navigation.ROUT_SERVICE
+import androidx.navigation.navArgument
+import com.dancun.markethub.ui.screens.about.AboutScreen
 import com.dancun.markethub.ui.screens.auth.LoginScreen
+import com.dancun.markethub.ui.screens.auth.RegisterScreen
+import com.dancun.markethub.ui.screens.home.HomeScreen
+import com.dancun.markethub.ui.screens.intent.IntentScreen
+import com.dancun.markethub.ui.screens.onboarding.OnBoardingScreen
 import com.dancun.markethub.ui.screens.payment.PaymentScreen
+import com.dancun.markethub.ui.screens.products.AddProductScreen
+import com.dancun.markethub.ui.screens.products.UpdateProductScreen
+import com.dancun.markethub.ui.screens.products.ViewProductScreen
+import com.dancun.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.dancun.markethub.ui.screens.service.ServiceScreen
-import com.kennedy.markethub.ui.screens.about.AboutScreen
-import com.kennedy.markethub.ui.screens.home.HomeScreen
+import com.dancun.markethub.ui.screens.splash.SplashScreen
+
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_ONBOARDING
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -41,6 +44,9 @@ fun AppNavHost(
         composable(ROUT_LOGIN) {
             LoginScreen(navController)
         }
+        composable(ROUT_REGISTER) {
+            RegisterScreen(navController)
+        }
         composable(ROUT_SERVICE) {
             ServiceScreen(navController)
         }
@@ -50,31 +56,25 @@ fun AppNavHost(
         composable(ROUT_INTENT) {
             IntentScreen(navController)
         }
-
-
-
-
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
         }
+        composable(ROUT_SCAFFOLD) {
+            ScaffoldScreen(navController)
+        }
+        composable(ROUT_ONBOARDING) {
+            OnBoardingScreen(navController)
+        }
+        composable(ROUTE_ADD_PRODUCT) { AddProductScreen(navController) }
 
+        composable(ROUTE_VIEW_PRODUCTS) { ViewProductScreen(navController) }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        composable(
+            ROUTE_UPDATE_PRODUCT,
+            arguments = listOf(navArgument("productId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId")!!
+            UpdateProductScreen(navController, productId)
+        }
     }
-
-@Composable
-fun IntentScreen(x0: NavHostController) {
-    TODO("Not yet implemented")
 }
-
-

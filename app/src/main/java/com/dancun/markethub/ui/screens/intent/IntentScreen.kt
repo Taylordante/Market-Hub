@@ -36,7 +36,7 @@ import com.dancun.markethub.ui.theme.Pink40
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InternetScreen(navController: NavController) {
+fun IntentScreen(navController: NavController) {
 
 
 
@@ -247,8 +247,8 @@ fun InternetScreen(navController: NavController) {
 
 @Preview(showBackground = true)
 @Composable
-fun InternetScreenPreview() {
-    InternetScreen(rememberNavController())
+fun IntentScreenPreview() {
+    IntentScreen(rememberNavController())
 
 
 }
